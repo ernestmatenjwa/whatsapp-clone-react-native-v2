@@ -3,12 +3,13 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Octicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import MainTabNavigator from './MainTabNavigator';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Pressable, View } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -37,8 +38,33 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+    <Stack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: Colors.light.tint,
+      },
+      headerTintColor: Colors.light.background,
+      headerTitleAlign: 'left',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      }
+    }}>
+      <Stack.Screen 
+         name="Root"
+        component={BottomTabNavigator}
+        options={{
+          title: "WhatsApp",
+          headerRight: () => (
+            <View style={{
+              flexDirection: 'row',
+              width: 60,
+              justifyContent: 'space-between',
+              marginRight: 10,
+            }}>
+              <Octicons name="search" size={22} color={'white'} />
+              <MaterialCommunityIcons name="dots-vertical" size={22} color={'white'} />
+            </View>
+          )
+        }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
