@@ -19,6 +19,15 @@ export type RootStackParamList = {
   NotFound: undefined;
 };
 
+
+export type TabOneParamList = {
+  TabOneScreen: undefined;
+};
+
+export type TabTwoParamList = {
+  TabTwoScreen: undefined;
+};
+
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
   RootStackParamList,
   Screen

@@ -7,7 +7,7 @@ import { FontAwesome, Octicons, MaterialCommunityIcons } from '@expo/vector-icon
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//import MainTabNavigator from './MainTabNavigator';
+import MainTabNavigator from './MainTabNavigator';
 import * as React from 'react';
 import { ColorSchemeName, Pressable, View } from 'react-native';
 
@@ -50,7 +50,7 @@ function RootNavigator() {
     }}>
       <Stack.Screen 
          name="Root"
-        component={BottomTabNavigator}
+        component={MainTabNavigator}
         options={{
           title: "WhatsApp",
           headerRight: () => (
