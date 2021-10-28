@@ -2,36 +2,57 @@ import { Ionicons } from '@expo/vector-icons';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { color } from 'react-native-reanimated';
+
+import { Fontisto } from "@expo/vector-icons";
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
-const BottomTab = createMaterialTopTabNavigator<RootTabParamList>();
+const MainTab = createMaterialTopTabNavigator<MainTabParamList>();
 
 export default function BottomTabParamList() {
   const colorScheme = useColorScheme();
 
   return (
-    <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
-      <BottomTab.Screen
-        name="TabOne"
+    <MainTab.Navigator
+      initialRouteName="Chats"
+      screenOptions={{ 
+        tabBarActiveTintColor: Colors[colorScheme].background,
+        tabBarStyle: {
+          backgroundColor: Colors[colorScheme].tint,
+        },
+        tabBarIndicatorStyle: {
+          backgroundColor: Colors[colorScheme].background,
+          height: 4,
+        },
+        tabBarLabelStyle: {
+          fontWeight: 'bold'
+        },
+        tabBarShowIcon: true,
+        }}>
+      <MainTab.Screen
+        name="Camera"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color}  />, }}
+          tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18}  />,
+          tabBarLabel: () => null }}
       />
-      <BottomTab.Screen
-        name="TabTwo"
+      <MainTab.Screen
+        name="Chats"
         component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color}  />, }}
       />
-    </BottomTab.Navigator>
+        <MainTab.Screen
+        name="Status"
+        component={TabTwoNavigator}
+      />
+        <MainTab.Screen
+        name="Calls"
+        component={TabTwoNavigator}
+      />
+    </MainTab.Navigator>
   );
 }
 

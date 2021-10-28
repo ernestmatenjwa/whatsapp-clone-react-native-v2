@@ -19,6 +19,12 @@ export type RootStackParamList = {
   NotFound: undefined;
 };
 
+export type MainTabParamList = {
+  Camera: undefined;
+  Chats: undefined;
+  Status: undefined;
+  Calls: undefined;
+};
 
 export type TabOneParamList = {
   TabOneScreen: undefined;

@@ -47,6 +47,8 @@ function RootNavigator() {
       headerTitleStyle: {
         fontWeight: 'bold',
       }
+    
+     
     }}>
       <Stack.Screen 
          name="Root"
