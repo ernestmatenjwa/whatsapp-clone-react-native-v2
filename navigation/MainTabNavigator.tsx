@@ -39,6 +39,7 @@ export default function BottomTabParamList() {
         options={{
           tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18}  />,
           tabBarLabel: () => null }}
+        
       />
       <MainTab.Screen
         name="Chats"
