@@ -35,11 +35,10 @@ export default function BottomTabParamList() {
         }}>
       <MainTab.Screen
         name="Camera"
-        component={TabTwoNavigator}
+        component={TabTwoScreen}
         options={{
           tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18}  />,
           tabBarLabel: () => null }}
-        
       />
       <MainTab.Screen
         name="Chats"
@@ -47,11 +46,11 @@ export default function BottomTabParamList() {
       />
         <MainTab.Screen
         name="Status"
-        component={TabTwoNavigator}
+        component={TabTwoScreen}
       />
         <MainTab.Screen
         name="Calls"
-        component={TabTwoNavigator}
+        component={TabTwoScreen}
       />
     </MainTab.Navigator>
   );

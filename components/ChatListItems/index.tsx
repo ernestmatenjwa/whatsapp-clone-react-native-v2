@@ -1,8 +1,14 @@
 import React from "react";
-import { View, Image, Text  } from "react-native";
+import { 
+        View, 
+        Image,
+        Text, 
+        TouchableWithoutFeedback  }
+         from "react-native";
 import { ChatRoom } from "../../types";
 import styles from "./styles";
 import moment from "moment";
+import { useNavigation } from '@react-navigation/native';
 
 export type ChatListItemProps = {
     chatRoom: ChatRoom;
@@ -13,8 +19,14 @@ const ChatListItem = (props: ChatListItemProps) => {
 
     const user = chatRoom.users[1];
 
+    const navigation = useNavigation();
+
+    const onClick = () => {
+        navigation.navigate('ChatRoom', { id: chatRoom.id, name: user.name})
+    }
     return(
-    <View style={styles.container}>
+        <TouchableWithoutFeedback onPress={onClick}>
+ <View style={styles.container}>
         <View style={styles.lefContainer}>
         <Image source={{ uri: user.imageUri }} style={styles.avatar} />
 
@@ -31,6 +43,8 @@ const ChatListItem = (props: ChatListItemProps) => {
         </Text>
         
     </View>
+        </TouchableWithoutFeedback>
+   
     )
   
 };
