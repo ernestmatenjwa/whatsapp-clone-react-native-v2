@@ -21,6 +21,8 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
+import ContactListItem from '../components/ContactListItem';
+import ContactsScreen from '../screens/ContactsScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -88,6 +90,11 @@ function RootNavigator() {
             </View>
           )
         })}
+        />
+        <Stack.Screen 
+        name="Contacts" 
+        component={ContactsScreen} 
+  
         />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
