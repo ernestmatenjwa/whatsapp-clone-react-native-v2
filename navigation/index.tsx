@@ -57,7 +57,7 @@ function RootNavigator() {
         component={MainTabNavigator}
         options={{
           headerShadowVisible: false,
-          title: "WhatsApp",
+          title: "WhatsApp Business",
           headerRight: () => (
             <View 
             style={{
