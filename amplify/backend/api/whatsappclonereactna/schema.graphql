@@ -1,0 +1,6 @@
+type WhatsappUser @model {
+  id: ID!
+  name: String!
+  imageUri: String
+  status: String 
+}
