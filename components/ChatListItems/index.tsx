@@ -22,7 +22,6 @@ const ChatListItem = (props: ChatListItemProps) => {
     const [ otherUser, setOtherUser] = React.useState(null);
   
     const navigation = useNavigation();
-    const user = chatRoom.chatRoomUsers.items[0].user;
 
   React.useEffect(() => {
     const getOtherUser = async () => {

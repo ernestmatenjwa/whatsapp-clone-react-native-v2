@@ -1,22 +1,22 @@
 import * as React from 'react';
 import {FlatList, StyleSheet} from 'react-native';
 import { View } from '../components/Themed';
-import ChatListItem from '../components/ChatListItems/index';
+import ChatListItem from '../components/ChatListItems';
 import {
   API,
   graphqlOperation,
   Auth,
 } from 'aws-amplify';
-
 import NewMessageButton from "../components/NewMessageButton";
+import {useEffect, useState} from "react";
 
 import { getUser } from './queries';
 
 export default function ChatsScreen() {
 
-  const [chatRooms, setChatRooms] = React.useState([]);
+  const [chatRooms, setChatRooms] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchChatRooms = async () => {
       try {
         const userInfo = await Auth.currentAuthenticatedUser();
@@ -25,7 +25,7 @@ export default function ChatsScreen() {
           graphqlOperation(
             getUser, {
               id: userInfo.attributes.sub,
-            }
+            } 
           )
         )
 
